@@ -9,27 +9,23 @@ export default function Home() {
   const [customerId, setCustomerId] = useState("");
   const [customerData, setCustomerData] = useState<Billing | null>(null);
 
-  const fetchCustomer = async () => {
-    const billingResponse: SingleBillingResponse = await (
-      await fetch(`/api/customers/${customerId}`)
-    ).json();
-    if (billingResponse.code !== 200) {
-      console.error({
-        error: billingResponse.message,
-        code: billingResponse.code,
-      });
-    }
-
-    setCustomerData(billingResponse.data || null);
-  };
-
   return (
     <MainWrapper>
       <FormWrapper>
         <form
           onSubmit={async (e) => {
             e.preventDefault();
-            return await fetchCustomer();
+            const billingResponse: SingleBillingResponse = await (
+              await fetch(`/api/customers/${customerId}`)
+            ).json();
+            if (billingResponse.code !== 200) {
+              console.error({
+                error: billingResponse.message,
+                code: billingResponse.code,
+              });
+            }
+
+            setCustomerData(billingResponse.data || null);
           }}
         >
           <input
