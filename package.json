@@ -1,25 +1,37 @@
 {
   "name": "viind",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
+    "@graphql-codegen/typescript-urql": "^3.7.3",
     "@types/node": "18.15.11",
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11",
-    "autoprefixer": "10.4.14",
+    "@urql/core": "^4.0.4",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
+    "graphql": "^16.6.0",
     "next": "13.3.0",
-    "postcss": "8.4.22",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tailwindcss": "3.3.1",
-    "typescript": "5.0.4"
+    "styled-components": "^5.3.9",
+    "typescript": "^5.0.4",
+    "urql": "^4.0.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "3.3.0",
+    "@graphql-codegen/client-preset": "3.0.0",
+    "@graphql-codegen/introspection": "3.0.1",
+    "@types/styled-components": "^5.1.26"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   }
 }
