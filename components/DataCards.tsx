@@ -1,16 +1,13 @@
 import styled from "styled-components";
 
-const FlexSection = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-`;
-
 interface DataCardContainerProps {
   cols: number;
 }
 
 const DataCardContainer = styled.div<DataCardContainerProps>`
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: #fffffff8;
+
   display: grid;
   grid-template-columns: repeat(
     ${(props) => (props.cols ? props.cols : 1)},
@@ -23,9 +20,9 @@ const DataCardContainer = styled.div<DataCardContainerProps>`
 `;
 
 const CardContent = styled.div`
-  background-color: #7fffd46f;
+  background-color: #4dbdc5;
   text-align: center;
-  padding: 0 1rem 0.25rem 1rem;
+  padding: 0 1rem 1.75rem 1rem;
   border-radius: 5px;
 `;
 
@@ -65,5 +62,5 @@ export const DataCards = ({ cards }: DataCardProps) => {
     );
   });
 
-  return <FlexSection>{dataCards}</FlexSection>;
+  return <>{dataCards}</>;
 };
