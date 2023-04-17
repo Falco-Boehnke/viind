@@ -1,12 +1,15 @@
 import { DataCards } from "@/components/DataCards";
+import { FlexSectionWithWrap } from "@/components/FlexWrapper";
 import { FormWrapper } from "@/components/FormWrapper";
 import { MainWrapper } from "@/components/MainWrapper";
 import { SingleBillingResponse } from "@/types/getBillingType";
 import { Billing } from "@/urql/urql.components";
 import { useState } from "react";
+import { CirclesWithBar } from "react-loader-spinner";
 
 export default function Home() {
   const [customerId, setCustomerId] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [customerData, setCustomerData] = useState<Billing | null>(null);
 
   return (
@@ -15,6 +18,7 @@ export default function Home() {
         <form
           onSubmit={async (e) => {
             e.preventDefault();
+            setIsLoading(true);
             const billingResponse: SingleBillingResponse = await (
               await fetch(`/api/customers/${customerId}`)
             ).json();
@@ -26,6 +30,7 @@ export default function Home() {
             }
 
             setCustomerData(billingResponse.data || null);
+            setIsLoading(false);
           }}
         >
           <input
@@ -38,8 +43,26 @@ export default function Home() {
           <button type="submit">Customer anfragen</button>
         </form>
       </FormWrapper>
-      {customerData && (
-        <section>
+
+      <FlexSectionWithWrap style={{ justifyContent: "center" }}>
+        {isLoading && (
+          <CirclesWithBar color="#0175b2" height="200" width="200" />
+        )}
+        {!isLoading && !customerData && (
+          <DataCards
+            cards={[
+              {
+                content: [
+                  {
+                    title: "No Customer found",
+                    text: "Please try again with another ID",
+                  },
+                ],
+              },
+            ]}
+          />
+        )}
+        {!isLoading && customerData && (
           <DataCards
             cards={[
               {
@@ -60,8 +83,8 @@ export default function Home() {
               },
             ]}
           />
-        </section>
-      )}
+        )}
+      </FlexSectionWithWrap>
     </MainWrapper>
   );
 }

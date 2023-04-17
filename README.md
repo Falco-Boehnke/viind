@@ -5,12 +5,19 @@
 - Api erreichbar als Graphql Schnittstelle mit einem Bearer Token (sollte also nicht gebundelt werden / sichtbar sein)
 
 
+### Live Build
+
+Live Build can be found here `https://viind-falco-boehnke.vercel.app/`
+
+
+
+### Deployment
+
+#### Locally
 1. Clone Repo via `git@github.com:Falco-Boehnke/viind.git`
 2. Install dependencies `yarn` or `npm install`
 3. Get env-variables `GRAPHQL_ENDPOINT` and `GRAPHQL_BEARER_TOKEN` and `VERCEL_URL`
 4. Run `yarn dev` - This will autogenerate graphql files
-
-### Deployment
 
 #### Managed Deployment via Vercel
 
