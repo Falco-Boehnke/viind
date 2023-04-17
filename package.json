@@ -21,12 +21,17 @@
     "next": "13.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "styled-components": "^5.3.9",
     "typescript": "^5.0.4",
     "urql": "^4.0.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "3.3.0",
     "@graphql-codegen/client-preset": "3.0.0",
-    "@graphql-codegen/introspection": "3.0.1"
+    "@graphql-codegen/introspection": "3.0.1",
+    "@types/styled-components": "^5.1.26"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   }
 }
