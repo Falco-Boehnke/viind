@@ -1,8 +1,9 @@
 # Billing GUI for viind
 
-## How to run
+- Microservices, hier Billing-Service
+    - Kümmert sich um Handling für Credits eines Useraccounts der Credits zum Chatten nutzt
+- Api erreichbar als Graphql Schnittstelle mit einem Bearer Token (sollte also nicht gebundelt werden / sichtbar sein)
 
-### Locally
 
 1. Clone Repo via `git@github.com:Falco-Boehnke/viind.git`
 2. Install dependencies `yarn` or `npm install`
@@ -16,6 +17,7 @@
 1. Create Vercel Account
 2. Publicize Repo
 3. Create new Vercel deployment, inbuilt assistant will give all necessary information
+4. Deployment starts the first time when a push is made to the main branch
 
 #### Self Hosting
 Nextjs apps can be build and bundled and are then useable in any node.js environment, including Docker containers (for example docker-compose)
