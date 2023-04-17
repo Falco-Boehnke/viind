@@ -7,7 +7,7 @@
 
 1. Clone Repo via `git@github.com:Falco-Boehnke/viind.git`
 2. Install dependencies `yarn` or `npm install`
-3. Get env-variables `GRAPHQL_ENDPOINT` and `GRAPHQL_BEARER_TOKEN`
+3. Get env-variables `GRAPHQL_ENDPOINT` and `GRAPHQL_BEARER_TOKEN` and `VERCEL_URL`
 4. Run `yarn dev` - This will autogenerate graphql files
 
 ### Deployment
