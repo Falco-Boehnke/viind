@@ -1,0 +1,15 @@
+schema {
+  query: Query
+}
+
+query BillingCustomer($customerId: String!) {
+  billing(customerId: $customerId) {
+    id
+    customerId
+    monthlyCredits
+    usedCredits
+    additionalCredits
+    remainingCredits
+    debtLimit
+  }
+}
