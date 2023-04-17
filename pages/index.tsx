@@ -4,7 +4,6 @@ import { MainWrapper } from "@/components/MainWrapper";
 import { SingleBillingResponse } from "@/types/getBillingType";
 import { Billing } from "@/urql/urql.components";
 import { useState } from "react";
-import styled from "styled-components";
 
 export default function Home() {
   const [customerId, setCustomerId] = useState("");
@@ -28,10 +27,9 @@ export default function Home() {
     <MainWrapper>
       <FormWrapper>
         <form
-          method="GET"
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault();
-            fetchCustomer();
+            return await fetchCustomer();
           }}
         >
           <input
